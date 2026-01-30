@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 public class files{
     public static void main(String[] args) throws FileNotFoundException{
-        File file = new File("animals.txt");
+        File file = new File("numbers.txt");
         Scanner scanner1 = new Scanner(file);
         int count = 0;
         while(scanner1.hasNext()){
@@ -16,22 +16,25 @@ public class files{
         scanner1.close();
 
         Scanner scanner2 = new Scanner(file);
-        String[] animals = new String[count];
+        // String[] animals = new String[count];
+        int[] numList = new int[count];
+        
 
         int i = 0;
         while(scanner2.hasNext()){
             String line = scanner2.nextLine().trim();
+            int num = Integer.parseInt(line);
 
             if(!line.isEmpty()){
-                animals[i] = line;
+                numList[i] = num;
                 i++;
             }
         }
 
         scanner2.close();
 
-        for(int j = 0; j < animals.length; j++){
-            System.out.println(animals[j]);
+        for(int j = 0; j < numList.length; j++){
+            System.out.println(numList[j]);
         }
 
     }
